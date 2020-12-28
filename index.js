@@ -4,10 +4,11 @@ for (let i = 0; i < numOfDrumBtns; i++) {
     document.querySelectorAll(".drum")[i].addEventListener("click", function () {
         var buttonInnerHTML = this.innerHTML;
         makeSound(buttonInnerHTML);
+ buttonAnimation(buttonInnerHTML)
     });
 }
 
-
+// document.querySelectorAll(" .addEventListener(;
 
 // function Audio(fileLocation){
 //     this.fileLocation = fileLocation;
@@ -18,6 +19,7 @@ for (let i = 0; i < numOfDrumBtns; i++) {
 
 document.addEventListener("keypress", function (event) {
     makeSound(event.key);
+    buttonAnimation(event.key)
 })
 
 function makeSound(key) {
@@ -46,4 +48,13 @@ function makeSound(key) {
             break;
         default: console.log(key);
     }
+}
+
+
+function buttonAnimation(currentKey){
+    var activeButton = document.querySelector("." + currentKey);
+    setTimeout(() => {
+        activeButton.classList.remove("pressed")
+}, 100);
+activeButton.classList.add("pressed")
 }

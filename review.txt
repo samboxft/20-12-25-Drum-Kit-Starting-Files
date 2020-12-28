@@ -1,0 +1,31 @@
+<button class="w drum">w</button>
+<button class="a drum">a</button>
+<button class="s drum">s</button>
+<button class="d drum">d</button>
+
+
+
+var numberOfButtons = document.querySelectorAll(".drum");
+for(let i = 0 ; i <numberOfbuttons;i++){
+document.querySelectorAll(".drum")[i].addeventListener("click", function() {
+
+var buttonInnerHTML = this.innerHTML;
+makeSound(buttonInnerHTML);
+
+}
+
+document.addeventListener("keypress", function(event){
+makeSound(event.key)
+});
+
+
+function makeSound(key){
+
+switch(key){
+case "w": var kick = new Audio("location/sound.mp3")
+kick.play();
+break;
+
+}}
+
+
